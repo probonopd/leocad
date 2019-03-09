@@ -72,8 +72,10 @@ script:
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -bundle-non-qt-libs
   # ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -appimage
   - tar cfvz appdir.tar.gz appdir/
-  - wget -c https://github.com/AppImage/AppImageKit/releases/download/11/appimagetool-x86_64.AppImage
-  - chmod +x ./appimagetool-x86_64.AppImage
-  - ./appimagetool-x86_64.AppImage appdir/
+  - wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O appimagetool-continuous-x86_64.AppImage
+  - wget -c https://github.com/AppImage/AppImageKit/releases/download/11/appimagetool-x86_64.AppImage -O appimagetool-11-x86_64.AppImage
+  - chmod +x ./appimagetool-*-x86_64.AppImage
+  - ./appimagetool-11-x86_64.AppImage appdir/
+  - ./appimagetool-continuous-x86_64.AppImage appdir/
   - curl --upload-file ./appdir.tar.gz https://transfer.sh/appdir.tar.gz 
   
