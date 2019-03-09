@@ -68,8 +68,9 @@ script:
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -bundle-non-qt-libs -verbose=2
   # ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -appimage -verbose=2
+  - tar cfvz appdir.tar.gz appdir/
   - wget -c https://github.com/AppImage/AppImageKit/releases/download/11/appimagetool-x86_64.AppImage
   - chmod +x ./appimagetool-x86_64.AppImage
   - ./appimagetool-x86_64.AppImage appdir/
-  - curl --upload-file ./LeoCAD-*.AppImage https://transfer.sh/LeoCAD-git.$(git rev-parse --short HEAD).qt$QT_BASE-x86_64.AppImage 
+  - curl --upload-file ./appdir.tar.gz https://transfer.sh/appdir.tar.gz 
   
