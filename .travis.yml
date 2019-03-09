@@ -67,10 +67,10 @@ script:
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
   - chmod a+x linuxdeployqt*.AppImage 
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
-  - cp appdir/usr/share/applications/leocad.desktop appdir/ ### WHY IS THIS NEEDED???
-  - cp appdir/usr/share/pixmaps/leocad.png appdir/ ### WHY IS THIS NEEDED???
+  # cp appdir/usr/share/applications/leocad.desktop appdir/ ### WHY IS THIS NEEDED???
+  # cp appdir/usr/share/pixmaps/leocad.png appdir/ ### WHY IS THIS NEEDED???
   # ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -bundle-non-qt-libs # this line can be deleted, not needed anymore
-  # ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -appimage # crashes
+  - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
   - ./linuxdeployqt*.AppImage --appimage-extract
   - export PATH=$(readlink -f ./squashfs-root/usr/bin/):$PATH
   - ./squashfs-root/usr/bin/appimagetool appdir/
