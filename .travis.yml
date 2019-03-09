@@ -72,6 +72,7 @@ script:
   # ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -appimage
   - ./linuxdeployqt*.AppImage --appimage-extract
+  - export PATH=$(readlink -f ./squashfs-root/usr/bin/):$PATH
   - ./squashfs-root/usr/bin/appimagetool appdir/
   - wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O appimagetool-continuous-x86_64.AppImage
   # wget -c https://github.com/AppImage/AppImageKit/releases/download/11/appimagetool-x86_64.AppImage -O appimagetool-11-x86_64.AppImage
