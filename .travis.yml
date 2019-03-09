@@ -68,6 +68,7 @@ script:
   - chmod a+x linuxdeployqt*.AppImage 
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - cp appdir/usr/share/applications/leocad.desktop appdir/ ### WHY IS THIS NEEDED???
+  - cp appdir/usr/share/pixmaps/leocad.png appdir/ ### WHY IS THIS NEEDED???
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -bundle-non-qt-libs
   # ./linuxdeployqt*.AppImage ./appdir/usr/bin/leocad -appimage
   - tar cfvz appdir.tar.gz appdir/
